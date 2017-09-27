@@ -86,11 +86,15 @@ class MenuController
     def view_entry_number
         system "clear"
         print "Entry number: "
-        n = gets.chomp
-        if n.is_a? Numeric && n <= @entries.length
-            @entries[n]
+        n = gets.chomp.to_i
+        if n < @address_book.entries.count
+           puts @address_book.entries[n-1]
+           puts "Press enter to return to main menu"
+           gets.chomp
+           system "clear"
         else
             print "Please enter a valid number: "
+            view_entry_number
         end    
     end    
     
