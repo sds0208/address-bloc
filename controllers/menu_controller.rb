@@ -14,7 +14,8 @@ class MenuController
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
         puts "5 - View a specific entry number"
-        puts "6 - Exit"
+        puts "6 - Delete all entries"
+        puts "7 - Exit"
         print "Enter your selection: "
         
         selection = gets.to_i
@@ -39,8 +40,12 @@ class MenuController
             when 5
                 system "clear"
                 view_entry_number
-                main_menu 
+                main_menu
             when 6
+                system "clear"
+                address_book.demolish
+                main_menu
+            when 7
                 puts "Good-bye!"
                 exit(0)
             else
@@ -198,5 +203,6 @@ class MenuController
         
         puts "Updated entry:"
         puts entry
-    end    
+    end
+    
 end
